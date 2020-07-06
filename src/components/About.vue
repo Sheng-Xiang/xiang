@@ -1,0 +1,87 @@
+<template>
+    <div id="about">
+        <div class="container">
+            <div class="title">
+                <span>About</span>
+                <font-awesome-icon :icon="['far', 'id-badge'] " size="2x" />
+            </div>
+            <div class="content">
+                <p>曾聖翔 | Sheng-Xiang</p>
+                <blockquote>
+                    <p>2015/9 ~ 2020/9 臺北科技大學 電子工程系</p>
+                    <p>2012/9 ~ 2015/6 台中高工 資訊科</p>
+                </blockquote>
+                <p>前端工程師 | 中華顧問工程司</p>
+                <blockquote>
+                    <p>2018/7 ~ 2018/11 <a href="https://www.digitalent.org.tw/index.html">DIGI+Talent</a> 實習生</p>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</template>
+<script>
+import $ from 'jquery'
+import { gsap, Power1 } from 'gsap'
+
+export default {
+    name: 'About',
+    mounted() {
+        $(() => {
+            const cursor = $('.cursor')
+            const el = $('a')
+
+            el.on('mouseenter', () => {
+                gsap.to(cursor, 0.3, {
+                    ease: Power1.easeOut,
+                    scale: 2.3,
+                    backgroundColor: 'rgba(255, 255, 255, 1)'
+                })
+            })
+
+            el.on('mouseleave', () => {
+                gsap.to(cursor, 0.3, {
+                    ease: Power1.easeOut,
+                    scale: 1
+                })
+            })
+        })
+    }
+}
+</script>
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped lang="scss">
+#about {
+    height: 100vh;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: inherit;
+}
+
+.title {
+    flex: 1;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 1rem;
+    padding: 2rem;
+    font-size: 2rem;
+}
+
+.content {
+    flex: 1 1 50%;
+    text-align: start;
+    margin: 1rem;
+    padding: 2rem;
+    border-left: 1px solid rgba(255, 255, 255, 1);
+}
+
+a {
+    font-weight: bold;
+    color: rgba(255, 255, 255, 0.9);
+}
+</style>

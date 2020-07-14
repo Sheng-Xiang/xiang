@@ -3,7 +3,7 @@
         <div class="container">
             <div class="title">
                 <span>Portfolio</span>
-                <font-awesome-icon :icon="['fas', 'book-open'] " size="2x" />
+                <font-awesome-icon class="titleIcon" :icon="['fas', 'book-open'] " size="2x" />
             </div>
             <div class="content">
             </div>
@@ -52,5 +52,38 @@ export default {
 a {
     font-weight: bold;
     color: #2c3e50;
+}
+
+@media (min-width: 1024px) and (max-width: 1920px) {
+    .container {}
+
+    .title {}
+}
+
+@media (min-width: 800px) and (max-width: 1024px) {
+    .container {}
+
+    .title {}
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .title {
+        margin-top: 10vh;
+        padding: 1rem;
+
+        .titleIcon {
+            display: none;
+        }
+    }
+
+    .content {
+        border-left: 0px;
+        // flex-direction: column;
+        // align-items: center;
+    }
 }
 </style>

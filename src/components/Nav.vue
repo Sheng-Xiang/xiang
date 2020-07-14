@@ -2,7 +2,8 @@
     <div class="nav">
         <div class="container">
             <div class="logo">
-                <span>Sheng-Xiang</span>
+                <span class="major">Sheng-Xiang</span>
+                <img class="minor" src="logo.png" alt="" style="height: 2.5vh">
             </div>
             <div class="menu">
                 <div class="item" @click="scroll(0)">
@@ -71,7 +72,7 @@ export default {
     position: fixed;
     top: 0;
     height: 10vh;
-    width: 100%;
+    width: 100vw;
     margin: -8px;
     border-bottom: 1px solid rgba(255, 255, 255, 1);
     background: rgba(0, 0, 0, 1);
@@ -93,10 +94,14 @@ export default {
     margin: 1rem;
     padding: 2rem;
     font-size: 2rem;
+
+    .minor {
+        display: none;
+    }
 }
 
 .menu {
-    flex: 1 1 50%;
+    flex: 1 0 50%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -104,7 +109,7 @@ export default {
     padding: 2rem;
 
     .item {
-        flex: 0 1 10%;
+        flex: 0 0 10%;
 
         &:hover {
             .zh {
@@ -118,6 +123,58 @@ export default {
 
         .en {
             display: none;
+        }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1920px) {
+    .menu {
+        .item {
+            flex: 0 0 15%;
+        }
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1024px) {
+    .menu {
+        .item {
+            flex: 0 0 25%;
+        }
+    }
+}
+
+@media (max-width: 800px) {
+    .logo {
+        flex: 0;
+        padding: 1rem;
+        font-size: 1rem;
+
+        .major {
+            display: none;
+        }
+
+        .minor {
+            display: block;
+        }
+    }
+
+    .menu {
+        flex: 1;
+        justify-content: space-around;
+        padding: 0rem;
+
+        .item {
+            flex: 1 1 100%;
+
+            &:hover {
+                .zh {
+                    display: block;
+                }
+
+                .en {
+                    display: none;
+                }
+            }
         }
     }
 }

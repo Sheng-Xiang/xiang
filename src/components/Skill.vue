@@ -3,12 +3,12 @@
         <div class="container">
             <div class="title">
                 <span>Skill</span>
-                <font-awesome-icon :icon="['fas', 'tools'] " size="2x" />
+                <font-awesome-icon class="titleIcon" :icon="['fas', 'tools'] " size="2x" />
             </div>
             <div class="content">
-                <div class="item" v-for="(skill, key) in skills" :key="key">
+                <div class="item" v-for="(skill, key) in skills" :key="key" :class="skill.importance">
                     <p>
-                        <font-awesome-icon :icon="[skill.style, skill.icon]" size="2x" v-if="skill.style"/>
+                        <font-awesome-icon :icon="[skill.style, skill.icon]" size="2x" v-if="skill.style" />
                         <img :src="skill.icon" alt="" height="32" v-else>
                     </p>
                     <p>{{skill.name}}</p>
@@ -30,85 +30,99 @@ export default {
                     style: "fab",
                     icon: "html5",
                     name: "HTML5",
-                    proficiency: "11110"
+                    proficiency: "11110",
+                    importance: "minor"
                 },
                 css: {
                     style: "fab",
                     icon: "css3-alt",
                     name: "CSS3",
-                    proficiency: "11110"
+                    proficiency: "11110",
+                    importance: "minor"
                 },
                 js: {
                     style: "fab",
                     icon: "js-square",
                     name: "JavaScript ES6",
-                    proficiency: "11100"
+                    proficiency: "11100",
+                    importance: "major"
                 },
                 bs: {
                     style: "fab",
                     icon: "bootstrap",
                     name: "Bootstrap 4",
-                    proficiency: "11110"
+                    proficiency: "11110",
+                    importance: "minor"
                 },
                 jq: {
                     style: "",
                     icon: "https://www.vectorlogo.zone/logos/jquery/jquery-vertical.svg",
                     name: "jQuery",
-                    proficiency: "11100"
+                    proficiency: "11100",
+                    importance: "minor"
                 },
                 sass: {
                     style: "fab",
                     icon: "sass",
                     name: "Sass/SCSS",
-                    proficiency: "111.0"
+                    proficiency: "111.0",
+                    importance: "major"
                 },
                 vue: {
                     style: "fab",
                     icon: "vuejs",
                     name: "Vue.js 2.x",
-                    proficiency: "11100"
+                    proficiency: "11100",
+                    importance: "major"
                 },
                 cli: {
                     style: "fab",
                     icon: "vuejs",
                     name: "Vue CLI 4.x",
-                    proficiency: "111.0"
+                    proficiency: "111.0",
+                    importance: "minor"
                 },
                 vuex: {
                     style: "fab",
                     icon: "vuejs",
                     name: "Vuex",
-                    proficiency: "11.00"
+                    proficiency: "11.00",
+                    importance: "minor"
                 },
                 vuerouter: {
                     style: "fab",
                     icon: "vuejs",
                     name: "Vue Router",
-                    proficiency: "11000"
+                    proficiency: "11000",
+                    importance: "minor"
                 },
                 node: {
                     style: "fab",
                     icon: "node",
                     name: "Node.js",
-                    proficiency: "11100"
+                    proficiency: "11100",
+                    importance: "minor"
                 },
                 express: {
                     style: "fab",
                     icon: "node",
                     name: "Express",
-                    proficiency: "11100"
+                    proficiency: "11100",
+                    importance: "minor"
                 },
                 restfulapi: {
                     style: "",
                     icon: "",
                     name: "RESTful API",
-                    proficiency: "11110"
+                    proficiency: "11110",
+                    importance: "minor"
                 },
                 git: {
                     style: "fab",
                     icon: "git-alt",
                     name: "Git",
-                    proficiency: "11100"
+                    proficiency: "11100",
+                    importance: "minor"
                 }
             }
         }
@@ -148,16 +162,8 @@ export default {
     margin: 1rem;
     padding: 2rem;
     border-left: 1px solid rgba(255, 255, 255, 1);
-}
 
-@keyframes spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
+    .major {}
 }
 
 .item {
@@ -179,6 +185,53 @@ export default {
         .regularStar {
             display: none;
         }
+    }
+}
+
+@media (min-width: 1024px) and (max-width: 1920px) {
+    .container {}
+
+    .title {}
+}
+
+@media (min-width: 800px) and (max-width: 1024px) {
+    .container {}
+
+    .title {}
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .title {
+        margin-top: 10vh;
+        padding: 1rem;
+
+        .titleIcon {
+            display: none;
+        }
+    }
+
+    .content {
+        border-left: 0px;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .minor {
+        display: none;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
     }
 }
 </style>

@@ -3,9 +3,10 @@
         <div class="container">
             <div class="title">
                 <span>About</span>
-                <font-awesome-icon :icon="['far', 'id-badge'] " size="2x" />
+                <font-awesome-icon class="titleIcon" :icon="['far', 'id-badge'] " size="2x" />
             </div>
             <div class="content">
+                <img src="logo.png" alt="" height="50px">
                 <p>曾聖翔 | Sheng-Xiang</p>
                 <blockquote>
                     <p>2015/9 ~ 2020/9 臺北科技大學 電子工程系</p>
@@ -78,6 +79,38 @@ export default {
     margin: 1rem;
     padding: 2rem;
     border-left: 1px solid rgba(255, 255, 255, 1);
+}
+
+@media (min-width: 1024px) and (max-width: 1920px) {
+    .container {}
+
+    .title {}
+}
+
+@media (min-width: 800px) and (max-width: 1024px) {
+    .container {}
+
+    .title {}
+}
+
+@media (max-width: 800px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .title {
+        margin-top: 10vh;
+        padding: 1rem;
+
+        .titleIcon {
+            display: none;
+        }
+    }
+
+    .content {
+        border-left: 0px;
+
+    }
 }
 
 a {

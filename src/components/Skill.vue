@@ -1,9 +1,13 @@
 <template>
     <div id="skill">
         <div class="container">
-            <div class="title">
-                <span>SKILL</span>
-                <font-awesome-icon class="titleIcon" :icon="['fas', 'tools'] " size="2x" />
+            <div class="theme">
+                <div>
+                    <font-awesome-icon class="themeIcon" :icon="['fas', 'tools'] " size="2x" />
+                </div>
+                <div>
+                    <span>SKILL</span>
+                </div>
             </div>
             <div class="content">
                 <div class="item" v-for="(skill, key) in skills" :key="key" :class="skill.importance">
@@ -154,14 +158,18 @@ export default {
     height: inherit;
 }
 
-.title {
+.theme {
     flex: 1;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
     margin: 1rem;
     padding: 2rem;
     font-size: 2rem;
+
+    div {
+        margin: 1rem;
+    }
 }
 
 .content {
@@ -208,13 +216,13 @@ export default {
 @media (min-width: 1025px) and (max-width: 1920px) {
     .container {}
 
-    .title {}
+    .theme {}
 }
 
 @media (min-width: 801px) and (max-width: 1024px) {
     .container {}
 
-    .title {}
+    .theme {}
 }
 
 @media (max-width: 800px) {
@@ -222,12 +230,12 @@ export default {
         flex-direction: column;
     }
 
-    .title {
+    .theme {
         margin-top: 10vh;
         margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
-        .titleIcon {
+        .themeIcon {
             display: none;
         }
     }

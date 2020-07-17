@@ -1,25 +1,32 @@
 <template>
     <div id="contact">
         <div class="container">
-            <div class="title">
-                <span>CONTACT</span>
-                <font-awesome-icon class="titleIcon" :icon="['far', 'address-book'] " size="2x" />
+            <div class="theme">
+                <div>
+                    <font-awesome-icon class="themeIcon" :icon="['far', 'address-book'] " size="2x" />
+                </div>
+                <div>
+                    <span>CONTACT</span>
+                </div>
             </div>
             <div class="content">
                 <div class="item">
                     <a href="mailto:a2325504a@gmail.com">
                         <font-awesome-icon class="contactIcon" :icon="['far', 'envelope'] " size="3x" />
                     </a>
+                    <p>Mail</p>
                 </div>
                 <div class="item">
                     <a href="https://github.com/Sheng-Xiang?tab=repositories">
                         <font-awesome-icon class="contactIcon" :icon="['fab', 'github'] " size="3x" />
                     </a>
+                    <p>Github</p>
                 </div>
                 <div class="item">
                     <a href="tel:0978108508">
                         <font-awesome-icon class="contactIcon" :icon="['fas', 'mobile-alt'] " size="3x" />
                     </a>
+                    <p>Phone</p>
                 </div>
             </div>
         </div>
@@ -53,14 +60,18 @@ export default {
     height: inherit;
 }
 
-.title {
+.theme {
     flex: 1;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
     margin: 1rem;
     padding: 2rem;
     font-size: 2rem;
+
+    div {
+        margin: 1rem;
+    }
 }
 
 .content {
@@ -97,13 +108,13 @@ a {
 @media (min-width: 1025px) and (max-width: 1920px) {
     .container {}
 
-    .title {}
+    .theme {}
 }
 
 @media (min-width: 801px) and (max-width: 1024px) {
     .container {}
 
-    .title {}
+    .theme {}
 }
 
 @media (max-width: 800px) {
@@ -111,12 +122,12 @@ a {
         flex-direction: column;
     }
 
-    .title {
+    .theme {
         margin-top: 10vh;
         margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
-        .titleIcon {
+        .themeIcon {
             display: none;
         }
     }

@@ -1,21 +1,51 @@
 <template>
     <div id="about">
         <div class="container">
-            <div class="title">
-                <span>ABOUT</span>
-                <font-awesome-icon class="titleIcon" :icon="['far', 'id-badge'] " size="2x" />
+            <div class="theme">
+                <div>
+                    <font-awesome-icon class="themeIcon" :icon="['far', 'id-badge'] " size="2x" />
+                </div>
+                <div>
+                    <span>ABOUT</span>
+                </div>
             </div>
             <div class="content">
-                <img src="logo.png" alt="" height="50px">
-                <p>曾聖翔 | Sheng-Xiang</p>
-                <blockquote>
-                    <p>2015/09 - 2020/09 臺北科技大學 電子工程系</p>
-                    <p>2012/09 - 2015/06 台中高工 資訊科</p>
-                </blockquote>
-                <p>前端工程師 | 中華顧問工程司</p>
-                <blockquote>
-                    <p>2018/07 - 2018/11 <a href="https://www.digitalent.org.tw/index.html">DIGI+Talent</a> 實習生</p>
-                </blockquote>
+                <div class="front">
+                    <span class="name-zh">曾聖翔</span>
+                </div>
+                <div class="middle">
+                    <span class="bar"> | </span>
+                </div>
+                <div class="tail">
+                    <span class="name-en">Sheng-Xiang</span>
+                </div>
+                <div class="front period">
+                    <span>2020/09 畢業</span>
+                </div>
+                <div class="tail project">
+                    <span>臺北科大 電子工程系</span>
+                </div>
+                <div class="front period">
+                    <span>2015/06 畢業</span>
+                </div>
+                <div class="tail project">
+                    <span>台中高工 資訊科</span>
+                </div>
+                <div class="front">
+                    <span class="work">經濟部工業局</span>
+                </div>
+                <div class="middle">
+                    <span class="work"> | </span>
+                </div>
+                <div class="tail">
+                    <span class="work"><a href="https://www.digitalent.org.tw/index.html">DIGI+Talent</a></span>
+                </div>
+                <div class="front period">
+                    <span>2018/07-11 實習</span>
+                </div>
+                <div class="tail project">
+                    <span>中華顧問工程司 前端工程師</span>
+                </div>
             </div>
         </div>
     </div>
@@ -70,35 +100,110 @@ export default {
     height: inherit;
 }
 
-.title {
+.theme {
     flex: 1;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
     margin: 1rem;
     padding: 2rem;
     font-size: 2rem;
+
+    div {
+        margin: 1rem;
+    }
 }
 
 .content {
     flex: 1 1 50%;
-    text-align: start;
     margin: 1rem;
     padding: 2rem;
+    padding-top: 0rem;
     padding-left: 3rem;
     border-left: 1px solid rgba(255, 255, 255, 1);
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-row-gap: 1rem;
+    grid-column-gap: 0.5rem;
+    justify-content: start;
+    align-items: baseline;
+
+    .front {
+        grid-column: 1;
+        display: flex;
+        justify-content: flex-end;
+        align-items: flex-end;
+
+        .name-zh {
+            font-size: 4rem;
+        }
+
+        .work {
+            font-size: 1.5rem;
+        }
+    }
+
+    .middle {
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+
+        .bar {
+            font-size: 3rem;
+        }
+
+        .work {
+            font-size: 1.5rem;
+        }
+    }
+
+    .tail {
+        grid-column: 3;
+        display: flex;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        .name-en {
+            font-size: 3rem;
+        }
+
+        .work {
+            font-size: 1.5rem;
+        }
+    }
 }
 
 @media (min-width: 1025px) and (max-width: 1920px) {
     .container {}
 
-    .title {}
+    .theme {}
 }
 
 @media (min-width: 801px) and (max-width: 1024px) {
     .container {}
 
-    .title {}
+    .theme {}
+
+    .content {
+        .front {
+            .name-zh {
+                font-size: 3.5rem;
+            }
+        }
+
+        .middle {
+            .bar {
+                font-size: 2.25rem;
+            }
+        }
+
+        .tail {
+
+            .name-en {
+                font-size: 2.25rem;
+            }
+        }
+    }
 }
 
 @media (max-width: 800px) {
@@ -106,19 +211,102 @@ export default {
         flex-direction: column;
     }
 
-    .title {
+    .theme {
         margin-top: 10vh;
         margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
-        .titleIcon {
+        .themeIcon {
             display: none;
         }
     }
 
     .content {
+        margin: 1rem;
+        padding: 2rem;
         border-left: 0px;
+        grid-template-rows: 4rem 2rem 2rem 2.5rem 2rem;
 
+        .front {
+            grid-column: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-end;
+
+            .name-zh {
+                font-size: 3rem;
+            }
+        }
+
+        .middle {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+
+            .bar {
+                font-size: 2.25rem;
+            }
+        }
+
+        .tail {
+            grid-column: 3;
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-end;
+
+            .name-en {
+                font-size: 2.25rem;
+            }
+        }
+    }
+}
+
+@media (max-width: 540px) {
+    .content {
+        grid-row-gap: 1rem;
+        grid-column-gap: 0.5rem;
+        grid-template-rows: repeat(8, 2rem);
+
+        .front {
+
+            .name-zh {
+                font-size: 1.5rem;
+            }
+
+            .work {
+                font-size: 1rem;
+            }
+        }
+
+        .middle {
+            .bar {
+                font-size: 1rem;
+            }
+
+            .work {
+                font-size: 1rem;
+            }
+        }
+
+        .tail {
+            .name-en {
+                font-size: 1rem;
+            }
+
+            .work {
+                font-size: 1rem;
+            }
+        }
+
+        .period {
+            grid-column: 1/ span 3;
+            justify-content: center;
+        }
+
+        .project {
+            grid-column: 1/ span 3;
+            justify-content: center;
+        }
     }
 }
 

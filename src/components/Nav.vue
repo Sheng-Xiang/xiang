@@ -109,6 +109,10 @@ export default {
     padding: 2rem;
     font-size: 2rem;
 
+    .major {
+        white-space: nowrap;
+    }
+
     .minor {
         display: none;
         height: 2.5vh;
@@ -123,6 +127,7 @@ export default {
     align-items: center;
     margin: 1rem;
     padding: 2rem;
+    font-size: 1.5rem;
 
     .item {
         flex: 0 0 10%;
@@ -163,7 +168,6 @@ export default {
     .logo {
         flex: 0;
         padding: 1rem;
-        font-size: 1rem;
 
         .major {
             display: none;
@@ -192,6 +196,12 @@ export default {
                 }
             }
         }
+    }
+}
+
+@media (max-width: 540px) {
+    .menu {
+        font-size: 1.2rem
     }
 }
 </style>

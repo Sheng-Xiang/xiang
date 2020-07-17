@@ -1,9 +1,13 @@
 <template>
     <div id="portfolio">
         <div class="container">
-            <div class="title">
-                <span>PORTFOLIO</span>
-                <font-awesome-icon class="titleIcon" :icon="['fas', 'book-open'] " size="2x" />
+            <div class="theme">
+                <div>
+                    <font-awesome-icon class="themeIcon" :icon="['fas', 'book-open'] " size="2x" />
+                </div>
+                <div>
+                    <span>PORTFOLIO</span>
+                </div>
             </div>
             <div class="content">
             </div>
@@ -38,14 +42,18 @@ export default {
     height: inherit;
 }
 
-.title {
+.theme {
     flex: 1;
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     align-items: center;
     margin: 1rem;
     padding: 2rem;
     font-size: 2rem;
+
+    div {
+        margin: 1rem;
+    }
 }
 
 .content {
@@ -67,13 +75,13 @@ a {
 @media (min-width: 1025px) and (max-width: 1920px) {
     .container {}
 
-    .title {}
+    .theme {}
 }
 
 @media (min-width: 801px) and (max-width: 1024px) {
     .container {}
 
-    .title {}
+    .theme {}
 }
 
 @media (max-width: 800px) {
@@ -81,12 +89,12 @@ a {
         flex-direction: column;
     }
 
-    .title {
+    .theme {
         margin-top: 10vh;
         margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
-        .titleIcon {
+        .themeIcon {
             display: none;
         }
     }

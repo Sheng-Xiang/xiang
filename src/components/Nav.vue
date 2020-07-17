@@ -58,6 +58,10 @@ export default {
                 })
             })
         }
+        window.addEventListener('resize', () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
     },
     methods: {
         ...mapMutations({
@@ -65,7 +69,6 @@ export default {
         }),
         scroll(index) {
             this.changeContentPosition(index)
-            // $('html').scrollTop(index * $(window).height())
             $('html').scrollTop(index * $(window).innerHeight())
         },
         isMobileDevice() {

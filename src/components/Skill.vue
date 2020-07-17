@@ -11,7 +11,7 @@
                         <font-awesome-icon :icon="[skill.style, skill.icon]" size="2x" v-if="skill.style" />
                         <img :src="skill.icon" alt="" height="32" v-else>
                     </p>
-                    <p>{{skill.name}}</p>
+                    <p style="white-space: nowrap;">{{skill.name}}</p>
                     <div class="star">
                         <font-awesome-icon class="solidStar" :icon="['fas', 'star']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == 1" />
                         <font-awesome-icon class="solidStar" :icon="['fas', 'star-half-alt']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == '.'" />
@@ -132,6 +132,10 @@ export default {
     mounted() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
+        window.addEventListener('resize', () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
     }
 }
 </script>
@@ -168,6 +172,7 @@ export default {
     align-items: flex-end;
     margin: 1rem;
     padding: 2rem;
+    padding-left: 3rem;
     border-left: 1px solid rgba(255, 255, 255, 1);
 }
 

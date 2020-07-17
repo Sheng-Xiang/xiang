@@ -31,6 +31,10 @@ export default {
     mounted() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
+        window.addEventListener('resize', () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
     }
 }
 </script>
@@ -66,6 +70,7 @@ export default {
     align-items: center;
     margin: 1rem;
     padding: 2rem;
+    padding-left: 3rem;
     border-left: 1px solid rgba(255, 255, 255, 1);
 }
 
@@ -76,7 +81,6 @@ export default {
 }
 
 a {
-    // cursor: none !important;
     color: rgba(255, 255, 255, 1);
 
     &:hover {

@@ -9,12 +9,12 @@
                 <img src="logo.png" alt="" height="50px">
                 <p>曾聖翔 | Sheng-Xiang</p>
                 <blockquote>
-                    <p>2015/9 ~ 2020/9 臺北科技大學 電子工程系</p>
-                    <p>2012/9 ~ 2015/6 台中高工 資訊科</p>
+                    <p>2015/09 - 2020/09 臺北科技大學 電子工程系</p>
+                    <p>2012/09 - 2015/06 台中高工 資訊科</p>
                 </blockquote>
                 <p>前端工程師 | 中華顧問工程司</p>
                 <blockquote>
-                    <p>2018/7 ~ 2018/11 <a href="https://www.digitalent.org.tw/index.html">DIGI+Talent</a> 實習生</p>
+                    <p>2018/07 - 2018/11 <a href="https://www.digitalent.org.tw/index.html">DIGI+Talent</a> 實習生</p>
                 </blockquote>
             </div>
         </div>
@@ -48,6 +48,10 @@ export default {
                 })
             })
         })
+        window.addEventListener('resize', () => {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        });
     }
 }
 </script>
@@ -81,6 +85,7 @@ export default {
     text-align: start;
     margin: 1rem;
     padding: 2rem;
+    padding-left: 3rem;
     border-left: 1px solid rgba(255, 255, 255, 1);
 }
 

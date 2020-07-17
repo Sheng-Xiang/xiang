@@ -11,8 +11,6 @@ import gsap from 'gsap'
 
 export default {
     mounted() {
-        console.log("height: " + $(window).height())
-        console.log("innerHeight: " + $(window).innerHeight())
         let that = this
         let isMobileDevice = that.isMobileDevice()
         // 裝置判別
@@ -28,12 +26,12 @@ export default {
                 html.css('cursor', 'auto')
             })
             //手指接觸螢幕
-            document.addEventListener("touchstart", function(e) {
+            document.addEventListener("touchstart", e => {
                 startx = e.touches[0].pageX
                 starty = e.touches[0].pageY
             }, false)
             //手指離開螢幕
-            document.addEventListener("touchend", function(e) {
+            document.addEventListener("touchend", e => {
                 let endx = e.changedTouches[0].pageX
                 let endy = e.changedTouches[0].pageY
                 let direction = that.getDirection(startx, starty, endx, endy)
@@ -118,7 +116,9 @@ export default {
                 })
             })
         }
-
+        window.addEventListener('resize', () => {
+            that.scroll(that.getContentPosition)
+        });
     },
     computed: {
         ...mapGetters({
@@ -131,7 +131,6 @@ export default {
         }),
         scroll(index) {
             this.changeContentPosition(index)
-            // $('html').scrollTop(index * $(window).height())
             $('html').scrollTop(index * $(window).innerHeight())
         },
         isMobileDevice() {
@@ -168,11 +167,18 @@ export default {
 }
 </script>
 <style lang="scss">
+@font-face {
+    font-family: 'NotoSerifCJKtc-Black';
+    src: url('./font/NotoSerifCJKtc-Black.otf');
+}
+
 #app {
     font-family: 'Microsoft JhengHei', Avenir, Helvetica, Arial, sans-serif;
+    font-family: NotoSerifCJKtc-Black;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
+    letter-spacing: 0.2rem;
     color: #FFFFFF;
 }
 

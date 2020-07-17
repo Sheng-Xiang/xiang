@@ -174,7 +174,7 @@ export default {
 }
 @font-face {
     font-family: 'custom-font';
-    src: url('./font/PlayfairDisplayBoldItalic-rgx7y.ttf');
+    src: url('./font/Swansea-q3pd.ttf');
     unicode-range: U+00-024F; // 英文字型範圍
 }
 

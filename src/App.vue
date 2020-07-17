@@ -168,13 +168,19 @@ export default {
 </script>
 <style lang="scss">
 @font-face {
-    font-family: 'NotoSerifCJKtc-Black';
-    src: url('./font/NotoSerifCJKtc-Black.otf');
+    font-family: 'custom-font';
+    src: url('./font/cwTeXYen-zhonly.ttf');
+    unicode-range: U+4E00-9FFF; // 中文字型範圍
+}
+@font-face {
+    font-family: 'custom-font';
+    src: url('./font/PlayfairDisplayBoldItalic-rgx7y.ttf');
+    unicode-range: U+00-024F; // 英文字型範圍
 }
 
 #app {
     font-family: 'Microsoft JhengHei', Avenir, Helvetica, Arial, sans-serif;
-    font-family: NotoSerifCJKtc-Black;
+    font-family: custom-font;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

@@ -2,7 +2,7 @@
     <div id="skill">
         <div class="container">
             <div class="title">
-                <span>Skill</span>
+                <span>SKILL</span>
                 <font-awesome-icon class="titleIcon" :icon="['fas', 'tools'] " size="2x" />
             </div>
             <div class="content">
@@ -12,9 +12,11 @@
                         <img :src="skill.icon" alt="" height="32" v-else>
                     </p>
                     <p>{{skill.name}}</p>
-                    <font-awesome-icon class="solidStar" :icon="['fas', 'star']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == 1" />
-                    <font-awesome-icon class="solidStar" :icon="['fas', 'star-half-alt']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == '.'" />
-                    <font-awesome-icon class="regularStar" :icon="['far', 'star']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == 0" />
+                    <div class="star">
+                        <font-awesome-icon class="solidStar" :icon="['fas', 'star']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == 1" />
+                        <font-awesome-icon class="solidStar" :icon="['fas', 'star-half-alt']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == '.'" />
+                        <font-awesome-icon class="regularStar" :icon="['far', 'star']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == 0" />
+                    </div>
                 </div>
             </div>
         </div>
@@ -126,6 +128,10 @@ export default {
                 }
             }
         }
+    },
+    mounted() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
     }
 }
 </script>
@@ -133,6 +139,7 @@ export default {
 <style scoped lang="scss">
 #skill {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100%;
 }
 
@@ -162,14 +169,19 @@ export default {
     margin: 1rem;
     padding: 2rem;
     border-left: 1px solid rgba(255, 255, 255, 1);
-
-    .major {}
 }
 
 .item {
     flex: 1 0 10%;
     margin: 1rem;
     padding: 0.5rem;
+
+    .star {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
 
     &:hover {
         transform: scale(1.5);
@@ -188,13 +200,13 @@ export default {
     }
 }
 
-@media (min-width: 1024px) and (max-width: 1920px) {
+@media (min-width: 1025px) and (max-width: 1920px) {
     .container {}
 
     .title {}
 }
 
-@media (min-width: 800px) and (max-width: 1024px) {
+@media (min-width: 801px) and (max-width: 1024px) {
     .container {}
 
     .title {}
@@ -207,6 +219,7 @@ export default {
 
     .title {
         margin-top: 10vh;
+        margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
         .titleIcon {
@@ -216,8 +229,8 @@ export default {
 
     .content {
         border-left: 0px;
-        flex-direction: column;
         align-items: center;
+        width: 100%;
     }
 
     .minor {

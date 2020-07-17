@@ -2,7 +2,7 @@
     <div id="about">
         <div class="container">
             <div class="title">
-                <span>About</span>
+                <span>ABOUT</span>
                 <font-awesome-icon class="titleIcon" :icon="['far', 'id-badge'] " size="2x" />
             </div>
             <div class="content">
@@ -27,6 +27,8 @@ import { gsap, Power1 } from 'gsap'
 export default {
     name: 'About',
     mounted() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
         $(() => {
             const cursor = $('.cursor')
             const el = $('a')
@@ -53,6 +55,7 @@ export default {
 <style scoped lang="scss">
 #about {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100%;
 }
 
@@ -81,13 +84,13 @@ export default {
     border-left: 1px solid rgba(255, 255, 255, 1);
 }
 
-@media (min-width: 1024px) and (max-width: 1920px) {
+@media (min-width: 1025px) and (max-width: 1920px) {
     .container {}
 
     .title {}
 }
 
-@media (min-width: 800px) and (max-width: 1024px) {
+@media (min-width: 801px) and (max-width: 1024px) {
     .container {}
 
     .title {}
@@ -100,6 +103,7 @@ export default {
 
     .title {
         margin-top: 10vh;
+        margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
         .titleIcon {

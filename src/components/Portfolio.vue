@@ -2,7 +2,7 @@
     <div id="portfolio">
         <div class="container">
             <div class="title">
-                <span>Portfolio</span>
+                <span>PORTFOLIO</span>
                 <font-awesome-icon class="titleIcon" :icon="['fas', 'book-open'] " size="2x" />
             </div>
             <div class="content">
@@ -12,13 +12,18 @@
 </template>
 <script>
 export default {
-    name: 'Portfolio'
+    name: 'Portfolio',
+    mounted() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
 }
 </script>
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 #portfolio {
     height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     width: 100%;
 }
 
@@ -54,13 +59,13 @@ a {
     color: #2c3e50;
 }
 
-@media (min-width: 1024px) and (max-width: 1920px) {
+@media (min-width: 1025px) and (max-width: 1920px) {
     .container {}
 
     .title {}
 }
 
-@media (min-width: 800px) and (max-width: 1024px) {
+@media (min-width: 801px) and (max-width: 1024px) {
     .container {}
 
     .title {}
@@ -73,6 +78,7 @@ a {
 
     .title {
         margin-top: 10vh;
+        margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
         .titleIcon {

@@ -29,35 +29,12 @@
 <script>
 import { mapMutations } from 'vuex'
 import $ from 'jquery'
-import { gsap, Power1 } from 'gsap'
 
 export default {
     name: 'Nav',
     mounted() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
-        let isMobileDevice = this.isMobileDevice()
-        if (!isMobileDevice) {
-            $(() => {
-                const cursor = $('.cursor')
-                const el = $('.menu .item')
-
-                el.on('mouseenter', () => {
-                    gsap.to(cursor, 0.3, {
-                        ease: Power1.easeOut,
-                        scale: 2.3,
-                        backgroundColor: 'rgba(255, 255, 255, 1)'
-                    })
-                })
-
-                el.on('mouseleave', () => {
-                    gsap.to(cursor, 0.3, {
-                        ease: Power1.easeOut,
-                        scale: 1
-                    })
-                })
-            })
-        }
         window.addEventListener('resize', () => {
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -69,12 +46,7 @@ export default {
         }),
         scroll(index) {
             this.changeContentPosition(index)
-            $('html').scrollTop(index * $(window).innerHeight())
-        },
-        isMobileDevice() {
-            const mobileDevice = ['Android', 'webOS', 'iPhone', 'iPad', 'iPod', 'BlackBerry', 'Windows Phone']
-            let isMobileDevice = mobileDevice.some(e => navigator.userAgent.match(e))
-            return isMobileDevice
+            $('html').scrollTop(index * window.innerHeight)
         }
     }
 }
@@ -82,14 +54,15 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .nav {
+    z-index: 2;
     position: fixed;
     top: 0;
     height: 10vh;
     height: calc(var(--vh, 1vh) * 10);
     width: 100vw;
-    margin: -8px;
     border-bottom: 1px solid rgba(255, 255, 255, 1);
     background: rgba(0, 0, 0, 1);
+    color: rgba(229, 229, 228, 1);
     font-weight: bold;
 }
 

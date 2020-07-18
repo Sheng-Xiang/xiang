@@ -20,9 +20,13 @@ export default {
     mounted() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
+        let vw = window.innerWidth * 0.01;
+        document.documentElement.style.setProperty('--vw', `${vw}px`);
         window.addEventListener('resize', () => {
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
+            let vw = window.innerWidth * 0.01;
+            document.documentElement.style.setProperty('--vw', `${vw}px`);
         });
     }
 }
@@ -33,13 +37,19 @@ export default {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100%;
+    // background: rgba(229, 229, 228, 1);
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: inherit;
+    height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
+    padding-top: 10vh;
+    padding-top: calc(var(--vh, 1vh) * 10);
+    padding-right: 10vw;
+    padding-right: calc(var(--vw, 1vw) * 10 - 1rem);
 }
 
 .theme {
@@ -87,11 +97,10 @@ a {
 @media (max-width: 800px) {
     .container {
         flex-direction: column;
+        padding-right: 0rem;
     }
 
     .theme {
-        margin-top: 10vh;
-        margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
         .themeIcon {
@@ -101,6 +110,7 @@ a {
 
     .content {
         border-left: 0px;
+        padding: 2rem;
         // flex-direction: column;
         // align-items: center;
     }

@@ -5,6 +5,7 @@
         <Skill />
         <Portfolio />
         <Contact />
+        <Side />
     </div>
 </template>
 <script>
@@ -14,6 +15,7 @@ import About from '@/components/About.vue'
 import Skill from '@/components/Skill.vue'
 import Portfolio from '@/components/Portfolio.vue'
 import Contact from '@/components/Contact.vue'
+import Side from '@/components/Side.vue'
 
 export default {
     name: 'Home',
@@ -22,7 +24,8 @@ export default {
         About,
         Skill,
         Portfolio,
-        Contact
+        Contact,
+        Side
     }
 }
 </script>

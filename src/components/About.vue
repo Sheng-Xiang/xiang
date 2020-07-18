@@ -51,36 +51,18 @@
     </div>
 </template>
 <script>
-import $ from 'jquery'
-import { gsap, Power1 } from 'gsap'
-
 export default {
     name: 'About',
     mounted() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
-        $(() => {
-            const cursor = $('.cursor')
-            const el = $('a')
-
-            el.on('mouseenter', () => {
-                gsap.to(cursor, 0.3, {
-                    ease: Power1.easeOut,
-                    scale: 2.3,
-                    backgroundColor: 'rgba(255, 255, 255, 1)'
-                })
-            })
-
-            el.on('mouseleave', () => {
-                gsap.to(cursor, 0.3, {
-                    ease: Power1.easeOut,
-                    scale: 1
-                })
-            })
-        })
+        let vw = window.innerWidth * 0.01;
+        document.documentElement.style.setProperty('--vw', `${vw}px`);
         window.addEventListener('resize', () => {
             let vh = window.innerHeight * 0.01;
             document.documentElement.style.setProperty('--vh', `${vh}px`);
+            let vw = window.innerWidth * 0.01;
+            document.documentElement.style.setProperty('--vw', `${vw}px`);
         });
     }
 }
@@ -91,13 +73,19 @@ export default {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100%;
+    // background: rgba(26, 32, 45, 1);
 }
 
 .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: inherit;
+    height: 90vh;
+    height: calc(var(--vh, 1vh) * 90);
+    padding-top: 10vh;
+    padding-top: calc(var(--vh, 1vh) * 10);
+    padding-right: 10vw;
+    padding-right: calc(var(--vw, 1vw) * 10 - 1rem);
 }
 
 .theme {
@@ -209,11 +197,10 @@ export default {
 @media (max-width: 800px) {
     .container {
         flex-direction: column;
+        padding-right: 0rem;
     }
 
     .theme {
-        margin-top: 10vh;
-        margin-top: calc(var(--vh, 1vh) * 10);
         padding: 1rem;
 
         .themeIcon {
@@ -312,6 +299,6 @@ export default {
 
 a {
     font-weight: bold;
-    color: rgba(255, 255, 255, 0.9);
+    color: rgba(229, 229, 228, 0.9);
 }
 </style>

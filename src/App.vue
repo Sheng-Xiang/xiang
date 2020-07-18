@@ -7,12 +7,13 @@
 <script>
 import { mapMutations, mapGetters } from 'vuex'
 import $ from 'jquery'
-import gsap from 'gsap'
+import { gsap, Power1 } from 'gsap'
 
 export default {
     mounted() {
         let that = this
         let isMobileDevice = that.isMobileDevice()
+
         // 裝置判別
         if (isMobileDevice) {
             // 行動裝置
@@ -22,8 +23,12 @@ export default {
             $(() => {
                 const cursor = $('.cursor')
                 const html = $('html')
+                const side = $('#side')
+                const container = $('.container')
                 cursor.css('display', 'none')
                 html.css('cursor', 'auto')
+                side.css('display', 'none')
+                container.css('padding-right', '0rem')
             })
             //手指接觸螢幕
             document.addEventListener("touchstart", e => {
@@ -84,6 +89,22 @@ export default {
             $(() => {
                 const cursor = $('.cursor')
                 let scrollLock = true
+                const el = $('.item, .gotoTop, a')
+                // 游標縮放
+                el.on('mouseenter', () => {
+                    gsap.to(cursor, 0.3, {
+                        ease: Power1.easeOut,
+                        scale: 2.3,
+                        backgroundColor: 'rgba(255, 255, 255, 1)'
+                    })
+                })
+
+                el.on('mouseleave', () => {
+                    gsap.to(cursor, 0.3, {
+                        ease: Power1.easeOut,
+                        scale: 1
+                    })
+                })
                 // 滑鼠移動
                 $(document).bind('mousemove', e => {
                     let offset = $(window).scrollTop()
@@ -172,6 +193,7 @@ export default {
     src: url('./font/cwTeXYen-zhonly.ttf');
     unicode-range: U+4E00-9FFF; // 中文字型範圍
 }
+
 @font-face {
     font-family: 'custom-font';
     src: url('./font/Swansea-q3pd.ttf');
@@ -185,7 +207,6 @@ export default {
     -moz-osx-font-smoothing: grayscale;
     text-align: center;
     letter-spacing: 0.2rem;
-    color: #FFFFFF;
 }
 
 .cursor {
@@ -216,6 +237,16 @@ html {
 }
 
 body {
-    background: radial-gradient(circle, rgba(128, 128, 128, 1), rgba(0, 0, 0, 0.9));
+    margin: 0;
+    background: rgba(0, 0, 0, 1);
+    color: rgba(229, 229, 228, 1);
 }
+
+@media (min-width: 1025px) and (max-width: 1920px) {}
+
+@media (min-width: 801px) and (max-width: 1024px) {}
+
+@media (max-width: 800px) {}
+
+@media (max-width: 540px) {}
 </style>

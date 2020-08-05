@@ -48,8 +48,8 @@ export default {
                         break
                     case 1:
                         // 向上滑動
-                        console.log("height: " + $(window).height())
-                        console.log("innerHeight: " + $(window).innerHeight())
+                        // console.log("height: " + $(window).height())
+                        // console.log("innerHeight: " + $(window).innerHeight())
                         if (scrollLock) {
                             scrollLock = false
                             if (index < 3) {
@@ -62,8 +62,8 @@ export default {
                         break
                     case 2:
                         // 向下滑動
-                        console.log("height: " + $(window).height())
-                        console.log("innerHeight: " + $(window).innerHeight())
+                        // console.log("height: " + $(window).height())
+                        // console.log("innerHeight: " + $(window).innerHeight())
                         if (scrollLock) {
                             scrollLock = false
 
@@ -190,19 +190,25 @@ export default {
 <style lang="scss">
 @font-face {
     font-family: 'custom-font';
-    src: url('./font/cwTeXYen-zhonly.ttf');
+    src: local(cwTeXYen zhonly),
+        local(cwTeXYen-zhonly),
+        url(./font/cwTeXYen-zhonly.ttf) format('truetype');
     unicode-range: U+4E00-9FFF; // 中文字型範圍
+    font-display: swap;
 }
 
 @font-face {
     font-family: 'custom-font';
-    src: url('./font/Swansea-q3pd.ttf');
+    src: local(Swansea q3pd),
+        local(Swansea-q3pd),
+        url(./font/Swansea-q3pd.ttf) format('truetype');
     unicode-range: U+00-024F; // 英文字型範圍
+    font-display: swap;
 }
 
 #app {
-    font-family: 'Microsoft JhengHei', Avenir, Helvetica, Arial, sans-serif;
-    font-family: custom-font;
+    font-family: custom-font, 'Microsoft JhengHei', Avenir, Helvetica, Arial, sans-serif;
+    // font-family: custom-font;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-align: center;

@@ -32,8 +32,8 @@ export default {
         });
         document.getElementsByClassName('circle')[this.getContentPosition].style['background'] = 'rgba(255, 255, 255, 1)'
 
-        console.log($(window).innerHeight())
-        console.log(window.innerHeight)
+        // console.log($(window).innerHeight())
+        // console.log(window.innerHeight)
     },
     computed: {
         ...mapGetters({

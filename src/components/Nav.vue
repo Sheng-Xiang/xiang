@@ -174,7 +174,7 @@ export default {
 
 @media (max-width: 540px) {
     .menu {
-        font-size: 1.2rem
+        font-size: 1rem
     }
 }
 </style>

@@ -121,7 +121,8 @@ export default {
     }
 }
 
-@media (min-width: 1025px) and (max-width: 1920px) {
+// @media (min-width: 1025px) and (max-width: 1920px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
     .menu {
         .item {
             flex: 0 0 15%;
@@ -129,7 +130,8 @@ export default {
     }
 }
 
-@media (min-width: 801px) and (max-width: 1024px) {
+// @media (min-width: 801px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
     .menu {
         .item {
             flex: 0 0 25%;
@@ -137,7 +139,8 @@ export default {
     }
 }
 
-@media (max-width: 800px) {
+// @media (max-width: 800px) {
+@media (max-width: 768px) {
     .logo {
         flex: 0;
         padding: 1rem;
@@ -172,9 +175,20 @@ export default {
     }
 }
 
-@media (max-width: 540px) {
+// @media (max-width: 540px) {
+@media (max-width: 445px) {
+    .logo {
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+
     .menu {
-        font-size: 1rem
+        font-size: 1.15rem;
+        margin: 0.5rem;
+
+        .item {
+            flex: 1 1 100%;
+        }
     }
 }
 </style>

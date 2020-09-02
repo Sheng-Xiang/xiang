@@ -2,8 +2,8 @@
     <div id="about">
         <div class="container">
             <div class="theme">
-                <div>
-                    <font-awesome-icon class="themeIcon" :icon="['far', 'id-badge'] " size="2x" />
+                <div class="themeIcon">
+                    <font-awesome-icon :icon="['far', 'id-badge'] " size="2x" />
                 </div>
                 <div>
                     <span>ABOUT</span>
@@ -38,7 +38,7 @@
                     <span class="work"> | </span>
                 </div>
                 <div class="tail">
-                    <span class="work"><a href="https://www.digitalent.org.tw/index.html">DIGI+Talent</a></span>
+                    <span class="work"><a href="https://www.digitalent.org.tw/index.html" target="_blank">DIGI+Talent</a></span>
                 </div>
                 <div class="front period">
                     <span>2018/07-11 實習</span>
@@ -161,46 +161,43 @@ export default {
     }
 }
 
-@media (min-width: 1025px) and (max-width: 1920px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
     .container {}
 
     .theme {}
 }
 
-@media (min-width: 801px) and (max-width: 1024px) {
-    .container {}
-
-    .theme {}
-
+@media (min-width: 769px) and (max-width: 1024px) {
     .content {
         .front {
             .name-zh {
-                font-size: 3.5rem;
+                font-size: 2.5rem;
             }
         }
 
         .middle {
             .bar {
-                font-size: 2.25rem;
+                font-size: 2rem;
             }
         }
 
         .tail {
 
             .name-en {
-                font-size: 2.25rem;
+                font-size: 1.5rem;
             }
         }
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .container {
         flex-direction: column;
         padding-right: 0rem;
     }
 
     .theme {
+        flex: 0;
         padding: 1rem;
 
         .themeIcon {
@@ -221,7 +218,7 @@ export default {
             align-items: flex-end;
 
             .name-zh {
-                font-size: 3rem;
+                font-size: 2.5rem;
             }
         }
 
@@ -231,7 +228,7 @@ export default {
             align-items: flex-end;
 
             .bar {
-                font-size: 2.25rem;
+                font-size: 2rem;
             }
         }
 
@@ -242,13 +239,13 @@ export default {
             align-items: flex-end;
 
             .name-en {
-                font-size: 2.25rem;
+                font-size: 1.75rem;
             }
         }
     }
 }
 
-@media (max-width: 540px) {
+@media (max-width: 445px) {
     .content {
         grid-row-gap: 1rem;
         grid-column-gap: 0.5rem;

@@ -2,8 +2,8 @@
     <div id="contact">
         <div class="container">
             <div class="theme">
-                <div>
-                    <font-awesome-icon class="themeIcon" :icon="['far', 'address-book'] " size="2x" />
+                <div class="themeIcon">
+                    <font-awesome-icon :icon="['far', 'address-book'] " size="2x" />
                 </div>
                 <div>
                     <span>CONTACT</span>
@@ -123,13 +123,13 @@ a {
     }
 }
 
-@media (min-width: 1025px) and (max-width: 1920px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
     .container {}
 
     .theme {}
 }
 
-@media (min-width: 801px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
     .container {}
 
     .theme {}
@@ -141,13 +141,14 @@ a {
     }
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .container {
         flex-direction: column;
         padding-right: 0rem;
     }
 
     .theme {
+        flex: 0;
         padding: 1rem;
 
         .themeIcon {

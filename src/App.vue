@@ -17,9 +17,6 @@ export default {
         // 裝置判別
         if (isMobileDevice) {
             // 行動裝置
-            let startx
-            let starty
-
             $(() => {
                 const cursor = $('.cursor')
                 const html = $('html')
@@ -30,65 +27,10 @@ export default {
                 side.css('display', 'none')
                 container.css('padding-right', '0rem')
             })
-            //手指接觸螢幕
-            document.addEventListener("touchstart", e => {
-                startx = e.touches[0].pageX
-                starty = e.touches[0].pageY
-            }, false)
-            //手指離開螢幕
-            document.addEventListener("touchend", e => {
-                let endx = e.changedTouches[0].pageX
-                let endy = e.changedTouches[0].pageY
-                let direction = that.getDirection(startx, starty, endx, endy)
-                let scrollLock = true
-                let index = that.getContentPosition
-                switch (direction) {
-                    case 0:
-                        // 無滑動
-                        break
-                    case 1:
-                        // 向上滑動
-                        // console.log("height: " + $(window).height())
-                        // console.log("innerHeight: " + $(window).innerHeight())
-                        if (scrollLock) {
-                            scrollLock = false
-                            if (index < 3) {
-                                that.scroll(index + 1)
-                                that.changeContentPosition(index + 1)
-                            }
-                        }
-
-                        setTimeout(() => { scrollLock = true }, 1000)
-                        break
-                    case 2:
-                        // 向下滑動
-                        // console.log("height: " + $(window).height())
-                        // console.log("innerHeight: " + $(window).innerHeight())
-                        if (scrollLock) {
-                            scrollLock = false
-
-                            if (index > 0) {
-                                that.scroll(index - 1)
-                                that.changeContentPosition(index - 1)
-                            }
-                        }
-
-                        setTimeout(() => { scrollLock = true }, 1000)
-                        break
-                    case 3:
-                        // 向左滑動
-                        break
-                    case 4:
-                        // 向右滑動
-                        break
-                    default:
-                }
-            }, false)
         } else {
             // 非行動裝置
             $(() => {
                 const cursor = $('.cursor')
-                let scrollLock = true
                 const el = $('.item, .gotoTop, a')
                 // 游標縮放
                 el.on('mouseenter', () => {
@@ -114,32 +56,40 @@ export default {
                         top: e.pageY - offset - 10
                     })
                 })
-                // 滾輪滾動
-                $(document).bind('mousewheel', e => {
-                    let index = this.getContentPosition
-
-                    if (scrollLock) {
-                        scrollLock = false
-                        if (e.originalEvent.deltaY < 0) {
-                            if (index > 0) {
-                                this.scroll(index - 1)
-                                this.changeContentPosition(index - 1)
-                            }
-                        } else {
-                            if (index < 3) {
-                                this.scroll(index + 1)
-                                this.changeContentPosition(index + 1)
-                            }
-                        }
-                    }
-
-                    setTimeout(() => { scrollLock = true }, 1000)
-                })
             })
         }
         window.addEventListener('resize', () => {
             that.scroll(that.getContentPosition)
         });
+    },
+    updated() {
+        let that = this
+        let isMobileDevice = that.isMobileDevice()
+
+        // 裝置判別
+        if (!isMobileDevice) {
+            // 非行動裝置
+            $(() => {
+                const cursor = $('.cursor')
+                const el = $('a')
+                // 游標縮放
+                el.on('mouseenter', () => {
+                    gsap.to(cursor, 0.3, {
+                        ease: Power1.easeOut,
+                        scale: 2.3,
+                        backgroundColor: 'rgba(255, 255, 255, 1)'
+                    })
+                })
+
+                el.on('mouseleave', () => {
+                    gsap.to(cursor, 0.3, {
+                        ease: Power1.easeOut,
+                        scale: 1
+                    })
+                })
+
+            })
+        }
     },
     computed: {
         ...mapGetters({
@@ -229,7 +179,7 @@ export default {
 }
 
 html {
-    cursor: none !important;
+    cursor: none;
     overflow: hidden;
 
     scroll-behavior: smooth;
@@ -247,12 +197,4 @@ body {
     background: rgba(0, 0, 0, 1);
     color: rgba(229, 229, 228, 1);
 }
-
-@media (min-width: 1025px) and (max-width: 1920px) {}
-
-@media (min-width: 801px) and (max-width: 1024px) {}
-
-@media (max-width: 800px) {}
-
-@media (max-width: 540px) {}
 </style>

@@ -2,21 +2,38 @@
     <div id="portfolio">
         <div class="container">
             <div class="theme">
-                <div>
-                    <font-awesome-icon class="themeIcon" :icon="['fas', 'book-open'] " size="2x" />
+                <div class="themeIcon">
+                    <font-awesome-icon :icon="['fas', 'book-open'] " size="2x" />
                 </div>
                 <div>
                     <span>PORTFOLIO</span>
                 </div>
             </div>
             <div class="content">
+                <Card v-for="(item, key) in potfolio" :key="key" :portfolio="item" target="_blank" />
+                <router-link to="/portfolio/list" target="_blank">More Portfolio</router-link>
             </div>
         </div>
     </div>
 </template>
 <script>
+import Card from '@/components/portfolio/Card.vue'
+
 export default {
     name: 'Portfolio',
+    components: {
+        Card
+    },
+    data() {
+        return {
+            potfolio: [{
+                    url: 'bluenet',
+                    name: 'BlueNet交通大平台',
+                    outline: '大學時跟著黃教授做叫車服務系統，負責前端介面，主要工作項目為實現叫車流程。'
+                }
+            ]
+        }
+    },
     mounted() {
         let vh = window.innerHeight * 0.01;
         document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -37,7 +54,6 @@ export default {
     height: 100vh;
     height: calc(var(--vh, 1vh) * 100);
     width: 100%;
-    // background: rgba(229, 229, 228, 1);
 }
 
 .container {
@@ -69,7 +85,8 @@ export default {
 .content {
     flex: 1 1 50%;
     display: flex;
-    justify-content: flex-end;
+    flex-wrap: wrap;
+    justify-content: space-around;
     align-items: center;
     margin: 1rem;
     padding: 2rem;
@@ -79,29 +96,38 @@ export default {
 
 a {
     font-weight: bold;
-    color: #2c3e50;
+    color: rgba(229, 229, 228, 0.9);
+    text-decoration: none;
+    background-color: rgba(0, 0, 0, 1);
+    border: 1px solid rgba(229, 229, 228, 0.9);
+    margin: 1rem;
+    padding: 0.5rem;
+    align-self: flex-end;
 }
 
-@media (min-width: 1025px) and (max-width: 1920px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
     .container {}
 
     .theme {}
 }
 
-@media (min-width: 801px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
     .container {}
 
     .theme {}
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .container {
         flex-direction: column;
         padding-right: 0rem;
     }
 
     .theme {
+        flex: 0;
         padding: 1rem;
+        flex-direction: row;
+        justify-content: center;
 
         .themeIcon {
             display: none;
@@ -109,10 +135,13 @@ a {
     }
 
     .content {
+        flex-direction: column;
         border-left: 0px;
         padding: 2rem;
-        // flex-direction: column;
-        // align-items: center;
+    }
+
+    a {
+        align-self: center;
     }
 }
 </style>

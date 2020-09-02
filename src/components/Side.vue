@@ -122,15 +122,15 @@ export default {
     font-size: 2rem;
 }
 
-@media (min-width: 1025px) and (max-width: 1920px) {}
+@media (min-width: 1025px) and (max-width: 1440px) {}
 
-@media (min-width: 801px) and (max-width: 1024px) {}
+@media (min-width: 769px) and (max-width: 1024px) {}
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     #side {
         display: none;
     }
 }
 
-@media (max-width: 540px) {}
+@media (max-width: 445px) {}
 </style>

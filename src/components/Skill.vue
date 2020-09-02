@@ -2,8 +2,8 @@
     <div id="skill">
         <div class="container">
             <div class="theme">
-                <div>
-                    <font-awesome-icon class="themeIcon" :icon="['fas', 'tools'] " size="2x" />
+                <div class="themeIcon">
+                    <font-awesome-icon :icon="['fas', 'tools'] " size="2x" />
                 </div>
                 <div>
                     <span>SKILL</span>
@@ -17,9 +17,9 @@
                     </p>
                     <p style="white-space: nowrap;">{{skill.name}}</p>
                     <div class="star">
-                        <font-awesome-icon class="solidStar" :icon="['fas', 'star']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == 1" />
-                        <font-awesome-icon class="solidStar" :icon="['fas', 'star-half-alt']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == '.'" />
-                        <font-awesome-icon class="regularStar" :icon="['far', 'star']" v-for="proficiency in `${skill.proficiency}`" :key="proficiency.key" v-show="proficiency == 0" />
+                        <font-awesome-icon class="solidStar" :icon="['fas', 'star']" v-for="proficiency in skill.proficiency" :key="proficiency.key" v-show="proficiency == 1" />
+                        <font-awesome-icon class="solidStar" :icon="['fas', 'star-half-alt']" v-for="proficiency in skill.proficiency" :key="proficiency.key" v-show="proficiency == '.'" />
+                        <font-awesome-icon class="regularStar" :icon="['far', 'star']" v-for="proficiency in skill.proficiency" :key="proficiency.key" v-show="proficiency == 0" />
                     </div>
                 </div>
             </div>
@@ -183,7 +183,7 @@ export default {
 }
 
 .content {
-    flex: 1 0 50%;
+    flex: 1 1 50%;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
@@ -222,25 +222,26 @@ export default {
     }
 }
 
-@media (min-width: 1025px) and (max-width: 1920px) {
+@media (min-width: 1025px) and (max-width: 1440px) {
     .container {}
 
     .theme {}
 }
 
-@media (min-width: 801px) and (max-width: 1024px) {
+@media (min-width: 769px) and (max-width: 1024px) {
     .container {}
 
     .theme {}
 }
 
-@media (max-width: 800px) {
+@media (max-width: 768px) {
     .container {
         flex-direction: column;
         padding-right: 0rem;
     }
 
     .theme {
+        flex: 0;
         padding: 1rem;
 
         .themeIcon {
@@ -250,10 +251,10 @@ export default {
 
     .content {
         flex-direction: column;
+        flex-wrap: nowrap;
         border-left: 0px;
         padding: 2rem;
         align-items: center;
-        width: 100%;
     }
 
     .minor {

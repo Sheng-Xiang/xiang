@@ -32,6 +32,7 @@ export default {
     },
     mounted() {
         document.title = 'xiang'
+        document.getElementsByTagName('html')[0].style['overflow'] = 'hidden'
 
         let that = this
         let isMobileDevice = that.isMobileDevice()

@@ -2,8 +2,7 @@
     <main>
         <nav>
             <router-link to="/portfolio/list">
-                <font-awesome-icon :icon="['fas', 'arrow-left']" />
-                <span> Back To List</span>
+                <font-awesome-icon :icon="['fas', 'arrow-left']" size="2x"/>
             </router-link>
         </nav>
         <article>
@@ -116,7 +115,6 @@ nav {
         font-weight: bold;
         color: rgba(229, 229, 228, 0.9);
         text-decoration: none;
-        border: 1px solid rgba(229, 229, 228, 1);
     }
 }
 
